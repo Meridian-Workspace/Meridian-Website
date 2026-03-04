@@ -16,7 +16,8 @@ export default function ContactCard() {
         className="
           w-[351px] h-max
           xl:w-[586px] xl:h-max
-          rounded-[48px] 
+          rounded-[28px]
+          mb:rounded-[48px] 
           bg-[#f3f3f3]
           px-6 py-8 xl:px-14 xl:py-16
           overflow-hidden
@@ -36,7 +37,7 @@ export default function ContactCard() {
         {/* Form */}
         <form className="flex flex-col gap-3 xl:gap-2">
           {/* Row 1 */}
-          <div className="flex flex-col gap-5 xl:grid xl:grid-cols-2 xl:gap-8">
+          <div className="flex flex-col gap-3 xl:grid xl:grid-cols-2 xl:gap-8">
             <div>
               <label className="mb-2 text-xs xl:text-base font-normal text-[#032982]">
                 Full Name*
