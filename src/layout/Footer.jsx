@@ -7,7 +7,7 @@ export default function Footer() {
       <Container className="py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-orange-500" />
+            <div className="h-10 w-10 rounded-lg bg-brand" />
             <div>
               <p className="font-semibold leading-tight">Meridian</p>
               <p className="text-xs text-white/70">
