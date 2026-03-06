@@ -1,6 +1,6 @@
 import Container from "../../components/ui/Container";
 import { motion } from "framer-motion";
-import { Mail, Facebook, Linkedin, Instagram } from "lucide-react";
+import { Facebook, Linkedin, Instagram } from "lucide-react";
 import ContactCard from "../../components/ui/ContactCard";
 
 export default function MainSection() {
