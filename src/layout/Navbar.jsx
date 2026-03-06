@@ -27,7 +27,7 @@ export default function Navbar() {
       <Container className="flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2">
           {/* Replace with your real logo asset later */}
-          <div className="h-8 w-8 rounded-md bg-orange-500" />
+          <div className="h-8 w-8 rounded-md bg-brand" />
           <span
             className={clsx(
               "font-semibold tracking-tight",
