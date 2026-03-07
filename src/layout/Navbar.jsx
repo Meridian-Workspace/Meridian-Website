@@ -13,29 +13,16 @@ const navLinks = [
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-
-  const isHome = useMemo(() => location.pathname === "/", [location.pathname]);
 
   return (
-    <header
-      className={clsx(
-        "sticky top-0 z-50 w-full border-b",
-        isHome ? "border-white/10 bg-[#052a83]" : "border-slate-200 bg-white",
-      )}
-    >
-      <Container className="flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2">
-          {/* Replace with your real logo asset later */}
-          <div className="h-8 w-8 rounded-md bg-orange-500" />
-          <span
-            className={clsx(
-              "font-semibold tracking-tight",
-              isHome ? "text-white" : "text-slate-900",
-            )}
-          >
-            Meridian
-          </span>
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#052a83]">
+      <div className="flex items-center justify-between py-4 px-6 lg:px-10">
+        <Link to="/" className="flex items-center">
+          <img
+            src="/Primary - White.svg"
+            alt="Meridian Logo"
+            className="h-8 w-auto"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -46,10 +33,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 clsx(
                   "text-sm font-medium transition",
-                  isHome
-                    ? "text-white/80 hover:text-white"
-                    : "text-slate-600 hover:text-slate-900",
-                  isActive && (isHome ? "text-white" : "text-slate-900"),
+                  "text-white/80 hover:text-white",
+                  isActive && "text-white",
                 )
               }
             >
@@ -57,7 +42,7 @@ export default function Navbar() {
             </NavLink>
           ))}
 
-          <Button as="a" href="#get-a-quote" variant="primary">
+          <Button as={Link} to="/contactus" variant="primary">
             Get a Quote
           </Button>
         </nav>
@@ -66,25 +51,18 @@ export default function Navbar() {
           type="button"
           className={clsx(
             "md:hidden inline-flex items-center justify-center rounded-lg p-2 transition",
-            isHome
-              ? "text-white hover:bg-white/10"
-              : "text-slate-900 hover:bg-slate-100",
+            "text-white/80 hover:text-white",
           )}
           onClick={() => setIsMobileMenuOpen((value) => !value)}
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </Container>
+      </div>
 
       {isMobileMenuOpen ? (
         <div
-          className={clsx(
-            "md:hidden border-t",
-            isHome
-              ? "border-white/10 bg-[#052a83]"
-              : "border-slate-200 bg-white",
-          )}
+          className={clsx("md:hidden border-t", "text-white hover:bg-white/10")}
         >
           <Container className="py-4">
             <div className="flex flex-col gap-3">
@@ -95,9 +73,8 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) =>
                     clsx(
-                      "py-2 text-sm font-medium",
-                      isHome ? "text-white/80" : "text-slate-700",
-                      isActive && (isHome ? "text-white" : "text-slate-900"),
+                      "py-2 text-sm font-medium text-white/80 hover:text-white",
+                      isActive && "text-white",
                     )
                   }
                 >
@@ -105,8 +82,8 @@ export default function Navbar() {
                 </NavLink>
               ))}
               <Button
-                as="a"
-                href="#get-a-quote"
+                as={Link}
+                to="/contactus"
                 variant="primary"
                 className="mt-2"
               >
