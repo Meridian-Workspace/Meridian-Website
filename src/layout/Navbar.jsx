@@ -42,7 +42,7 @@ export default function Navbar() {
             </NavLink>
           ))}
 
-          <Button as="a" href="#get-a-quote" variant="primary">
+          <Button as={Link} to="/contactus" variant="primary">
             Get a Quote
           </Button>
         </nav>
@@ -82,8 +82,8 @@ export default function Navbar() {
                 </NavLink>
               ))}
               <Button
-                as="a"
-                href="#get-a-quote"
+                as={Link}
+                to="/contactus"
                 variant="primary"
                 className="mt-2"
               >
