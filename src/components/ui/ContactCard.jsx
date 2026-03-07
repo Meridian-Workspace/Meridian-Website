@@ -28,11 +28,11 @@ export default function ContactCard() {
         >
           {/* Header */}
           <div className="xl:mb-3">
-            <p className="text-xs xl:text-[22px] text-[#143a8c]">
+            <p className="text-xs font-[Inter] xl:text-[22px] text-[#143a8c]">
               Ready to bring your vision to life?
             </p>
 
-            <h2 className="text-[22px] xl:text-[40px] font-extrabold text-[#143a8c]">
+            <h2 className="text-[22px] font-[Epilogue] xl:text-[40px] font-extrabold text-[#143a8c]">
               Write us a message.
             </h2>
           </div>
@@ -42,14 +42,14 @@ export default function ContactCard() {
             {/* Row 1 */}
             <div className="flex flex-col gap-3 xl:grid xl:grid-cols-2 xl:gap-8">
               <div>
-                <label className="mb-2 text-xs xl:text-base font-normal text-[#032982]">
+                <label className="mb-2 text-xs font-[Inter] xl:text-base font-normal text-[#032982]">
                   Full Name*
                 </label>
                 <input type="text" className={inputStyles} />
               </div>
 
               <div>
-                <label className="mb-2 text-xs xl:text-base font-normal text-[#032982]">
+                <label className="mb-2 text-xs font-[Inter] xl:text-base font-normal text-[#032982]">
                   E-mail*
                 </label>
                 <input type="email" className={inputStyles} />
@@ -58,7 +58,7 @@ export default function ContactCard() {
 
             {/* Company */}
             <div>
-              <label className="mb-2 text-xs xl:text-base font-normal text-[#032982]">
+              <label className="mb-2 text-xs font-[Inter] xl:text-base font-normal text-[#032982]">
                 Company/Organization Name*
               </label>
               <input type="text" className={inputStyles} />
@@ -66,7 +66,7 @@ export default function ContactCard() {
 
             {/* Message */}
             <div>
-              <label className="mb-2 text-xs xl:text-base font-normal text-[#032982]">
+              <label className="mb-2 text-xs font-[Inter] xl:text-base font-normal text-[#032982]">
                 Message*
               </label>
               <textarea
@@ -84,12 +84,12 @@ export default function ContactCard() {
                 className="h-4 w-4 xl:h-5 xl:w-5 accent-[#143a8c]"
               />
 
-              <p className="text-xs xl:text-base font-normal text-[#032982]">
+              <p className="text-xs font-[Inter] xl:text-base font-normal text-[#032982]">
                 I Agree to the{" "}
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(true)}
-                  className="underline hover:text-[#143a8c]"
+                  className="underline font-[Inter] hover:text-[#143a8c]"
                 >
                   Privacy Policy
                 </button>
