@@ -1,7 +1,7 @@
 import clsx from "clsx";
 
 const buttonStylesByVariant = {
-  primary: "bg-orange-500 text-white hover:bg-orange-600",
+  primary: "bg-brand text-white hover:bg-[#d94e2c]",
   secondary: "bg-white/10 text-white hover:bg-white/15 border border-white/15",
   outline: "border border-slate-300 text-slate-900 hover:bg-slate-50",
 };
