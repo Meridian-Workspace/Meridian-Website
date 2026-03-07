@@ -2,7 +2,7 @@ import Container from "../../components/ui/Container";
 import Button from "../../components/ui/Button";
 import { motion } from "framer-motion";
 
-export default function HeroSection() {
+export default function HeaderSection() {
   return (
     <section className="relative overflow-hidden bg-[#052a83] text-white">
       {/* moving white light band (like Figma) */}
@@ -26,36 +26,9 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
             className="font-[Epilogue] text-4xl font-extrabold tracking-tight md:text-6xl"
           >
-            Where Smart Systems
-            <br />
-            Meet Scalable Growth
+            About
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08, duration: 0.5 }}
-            className="mx-auto mt-6 max-w-2xl font-[Inter] text-base leading-relaxed text-white/80 md:text-lg"
-          >
-            We simplify complex tech into high-performance foundations that
-            drive your business forward.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.14, duration: 0.5 }}
-            className="mt-10"
-          >
-            <Button
-              as="a"
-              href="#get-a-quote"
-              variant="primary"
-              className="h-14 w-1/2 rounded-xl bg-brand px-32 text-base font-semibold text-white hover:bg-[#d94e2c]"
-            >
-              Let’s Collaborate
-            </Button>
-          </motion.div>
         </div>
       </Container>
     </section>
