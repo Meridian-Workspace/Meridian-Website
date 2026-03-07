@@ -1,4 +1,4 @@
-export default function MainHeroGlow() {
+export default function LightBandGlow() {
   return (
     <div className="pointer-events-none absolute inset-0 hero-bottom-glow">
       <div className="lightband main-red-lightband-y absolute bottom-[-20px] left-[60%] w-[1200px] h-64 opacity-40 md:h-70 md:w-[1000px]" />

@@ -2,12 +2,12 @@ import Container from "../../components/ui/Container";
 import { motion } from "framer-motion";
 import { Facebook, Linkedin, Instagram } from "lucide-react";
 import ContactCard from "../../components/ui/ContactCard";
-import MainHeroGlow from "../../components/ui/MainHeroGlow";
+import LightBandGlow from "../../components/ui/LightBandGlow";
 
 export default function MainSection() {
   return (
     <section className="relative overflow-hidden bg-[#052a83] text-white">
-      <MainHeroGlow />
+      <LightBandGlow />
 
       <Container className="relative z-10 flex flex-col gap-[20px] p-2 mt-1 md:flex-row md:gap-[90px] justify-center md:px-0 md:py-20">
         <div className="md:flex md:items-center md:justify-center">
