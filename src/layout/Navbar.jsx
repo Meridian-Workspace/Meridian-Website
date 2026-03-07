@@ -16,7 +16,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#052a83]">
-      <Container className="flex items-center justify-between py-4">
+      <div className="flex items-center justify-between py-4 px-6 lg:px-10">
         <Link to="/" className="flex items-center">
           <img
             src="/Primary - White.svg"
@@ -58,7 +58,7 @@ export default function Navbar() {
         >
           {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </Container>
+      </div>
 
       {isMobileMenuOpen ? (
         <div

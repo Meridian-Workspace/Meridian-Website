@@ -51,7 +51,7 @@ export default function HeroSection() {
               as="a"
               href="#get-a-quote"
               variant="primary"
-              className="h-14 rounded-xl bg-brand px-32 text-base font-semibold text-white hover:bg-[#d94e2c]"
+              className="h-14 w-1/2 rounded-xl bg-brand px-32 text-base font-semibold text-white hover:bg-[#d94e2c]"
             >
               Let’s Collaborate
             </Button>
