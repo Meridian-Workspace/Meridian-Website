@@ -14,7 +14,7 @@ export default function PurposeSection() {
           <img
             src="/AboutUs_Purpose.svg" 
             alt="Meridian purpose illustration"
-            className="w-full max-w-[280px] md:max-w-md lg:max-w-[480px] -rotate-[10deg] lg:-rotate-[15deg] transition-transform hover:rotate-0"
+            className="w-full max-w-[280px] md:max-w-md lg:max-w-[480px] -rotate-[10deg] lg:-rotate-[15deg] duration-500 transition-transform hover:rotate-0"
           />
         </div>
 
