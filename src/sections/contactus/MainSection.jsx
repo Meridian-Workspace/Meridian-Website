@@ -16,7 +16,7 @@ export default function MainSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08, duration: 0.5 }}
-              className="text-xs font-normal tracking-tight pt-6 xl:text-[22px] pt-14"
+              className="text-xs font-normal font-[Inter] tracking-tight pt-2 xl:text-[22px] pt-14"
             >
               We are here to help you
             </motion.p>
@@ -25,7 +25,7 @@ export default function MainSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-3xl font-extrabold tracking-tight xl:text-6xl"
+              className="text-3xl font-extrabold font-[Epilogue] tracking-tight xl:text-6xl pt-4"
             >
               Your vision is
               <br />
@@ -40,7 +40,7 @@ export default function MainSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-base font-medium tracking-tight pt-7 xl:text-xl md:pt-14"
+              className="text-base font-medium font-[Inter] tracking-tight pt-7 xl:text-xl md:pt-14"
             >
               Email
             </motion.h4>
@@ -49,7 +49,7 @@ export default function MainSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-sm font-medium tracking-tight pb-7 xl:text-base md:pb-14"
+              className="text-sm font-medium font-[Inter] tracking-tight pb-7 xl:text-base md:pb-14"
             >
               executive.meridian@gmail.com
             </motion.p>
@@ -58,7 +58,7 @@ export default function MainSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-base font-medium tracking-tight xl:text-xl"
+              className="text-base font-medium font-[Inter] tracking-tight xl:text-xl"
             >
               Social Media
             </motion.h4>

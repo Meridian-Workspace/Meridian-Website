@@ -10,33 +10,55 @@ html {
 
 .hero-lightband {
   border-radius: 9999px;
-  filter: blur(70px);
+  filter: blur(110px);
   will-change: transform;
-  outline: 2px solid red;
+  opacity: 0.95;
 
-  /* wide horizontal white band */
+  /* stronger center, smoother edges */
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.65) 20%,
+    rgba(255, 255, 255, 0.35) 18%,
+    rgba(255, 255, 255, 0.85) 45%,
     rgba(255, 255, 255, 0.95) 50%,
-    rgba(255, 255, 255, 0.65) 80%,
+    rgba(255, 255, 255, 0.85) 55%,
+    rgba(255, 255, 255, 0.35) 82%,
     rgba(255, 255, 255, 0) 100%
   );
 
   /* helps it feel like “light” on blue */
-  mix-blend-mode: soft-light;
-
-  /* horizontal drift */
-  animation: meridianLightbandDrift 2s ease-in-out infinite alternate;
+  /* more visible than soft-light */
+  mix-blend-mode: screen;
 }
 
-@keyframes meridianLightbandDrift {
+/* Band A: left -> right */
+.hero-lightband--a {
+  animation: meridianBandA 4s ease-in-out infinite alternate;
+}
+
+/* Band B: right -> left (slightly different speed) */
+.hero-lightband--b {
+  animation: meridianBandB 4s ease-in-out infinite alternate;
+  filter: blur(55px); /* a bit softer so it layers nicely */
+}
+
+/* left -> right across the whole hero */
+@keyframes meridianBandA {
   0% {
-    transform: translate(-50%, -50%) translateX(-120px);
+    transform: translateX(0);
   }
   100% {
-    transform: translate(-50%, -50%) translateX(120px);
+    transform: translateX(140vw);
+  }
+}
+
+/* right -> left across the whole hero */
+@keyframes meridianBandB {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-140vw);
   }
 }
 

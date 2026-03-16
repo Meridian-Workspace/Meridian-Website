@@ -62,27 +62,28 @@ export default function TeamSection() {
 
 function TeamCard({ name, role, specialty, image }) {
   return (
-    <div className="flex flex-col rounded-[2rem] overflow-hidden shadow-sm border border-gray-100 transition-transform duration-300 hover:-translate-y-2 w-full">
+    <div className="flex flex-col rounded-[2.5rem] overflow-hidden shadow-lg border border-gray-100 transition-all duration-300 hover:-translate-y-2 w-full bg-[#01257F] h-full">
       
-      {/* Image Container */}
-      <div className="relative bg-[#F3F4F6] w-full aspect-[4/5] flex justify-center items-end overflow-hidden">
+      {/* Image Container - Aspect ratio keeps it consistent across devices */}
+      <div className="relative bg-gray-200 w-full aspect-[4/5] overflow-hidden">
         <img
           src={image}
-          alt={`Portrait of ${name}`}
+          alt={name}
           className="w-full h-full object-cover object-top"
         />
       </div>
 
-      {/* Info Section - Reduced padding slightly (p-6) for 4-column layout */}
-      <div className="bg-[#01257F] p-6 text-white flex flex-col justify-center min-h-[160px]">
-        <h3 className="text-xl xl:text-2xl font-bold font-[Epilogue] mb-3 leading-tight">
+      {/* Info Section - flex-grow ensures the blue fills the bottom even if text is short */}
+      <div className="p-6 md:p-8 text-white flex flex-col justify-start flex-grow">
+        <h3 className="text-xl md:text-2xl font-bold font-[Epilogue] mb-3 leading-tight">
           {name}
         </h3>
-        <div className="space-y-1 opacity-90">
-          <p className="text-xs font-[Inter] font-medium uppercase tracking-wider">
+        
+        <div className="mt-auto space-y-1">
+          <p className="text-[10px] md:text-xs font-[Inter] font-bold uppercase tracking-[0.15em] opacity-80">
             {role}
           </p>
-          <p className="text-xs xl:text-sm font-[Inter]">
+          <p className="text-xs md:text-sm font-[Inter] leading-relaxed">
             {specialty}
           </p>
         </div>
