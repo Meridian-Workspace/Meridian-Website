@@ -7,12 +7,12 @@ export default function PrivacyPolicyModal({ isOpen, onClose, onAgree }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-xl">
         {/* Title */}
-        <h2 className="text-xl font-bold text-[#143a8c] mb-4">
+        <h2 className="text-xl font-bold font-[Epilogue] text-[#143a8c] mb-4">
           Privacy Notice: Contacting Meridian
         </h2>
 
         {/* Scrollable content */}
-        <div className="h-64 overflow-y-auto text-sm text-gray-700 space-y-3 mb-6">
+        <div className="h-64 overflow-y-auto font-[Inter]  text-sm text-gray-700 space-y-3 mb-6">
           <p>
             At Meridian, we believe that clear navigation begins with trust.
             When you reach out to us, you are sharing your information with the
