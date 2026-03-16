@@ -8,10 +8,10 @@ export default function HeroSection() {
       {/* moving white light band (like Figma) */}
       <div className="pointer-events-none absolute inset-0 hero-bottom-glow">
         {/* Band A: left -> right */}
-        <div className="hero-lightband hero-lightband--a absolute bottom-[-140px] left-[-40vw] h-64 w-[1200px] opacity-90 md:h-80 md:w-[1500px]" />
+        <div className="hero-lightband hero-lightband--a absolute bottom-[-140px] left-[-40vw] h-64 w-[1200px] opacity-100 md:h-80 md:w-[1500px]" />
 
         {/* Band B: right -> left */}
-        <div className="hero-lightband hero-lightband--b absolute bottom-[-170px] right-[-40vw] h-64 w-[1200px] opacity-75 md:h-80 md:w-[1500px]" />
+        <div className="hero-lightband hero-lightband--b absolute bottom-[-170px] right-[-40vw] h-64 w-[1200px] opacity-100 md:h-80 md:w-[1500px]" />
       </div>
 
       {/* existing soft glows (keep for depth like mockup) */}
@@ -49,7 +49,7 @@ export default function HeroSection() {
           >
             <Button
               as="a"
-              href="#get-a-quote"
+              href="/contactus"
               variant="primary"
               className="h-14 w-1/2 rounded-xl bg-brand px-32 text-base font-semibold text-white hover:bg-[#d94e2c]"
             >
