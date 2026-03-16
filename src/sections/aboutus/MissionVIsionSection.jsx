@@ -29,8 +29,8 @@ export default function MissionVisionSection() {
 
           <h2 className="text-4xl md:text-6xl font-[Epilogue] text-[#01257F] font-extrabold leading-[1.1] mb-6">
             Complex
-            <br className="hidden md:block"/> 
-            {" "}Tech, Simplified.
+            <br className="hidden md:block" /> 
+            {" "}Tech, <span className="text-[#EB5733]">Simplified.</span>
           </h2>
 
           <p className="text-base md:text-2xl font-[Inter] leading-relaxed text-gray-700">
