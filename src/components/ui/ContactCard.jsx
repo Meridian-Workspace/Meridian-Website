@@ -67,8 +67,11 @@ export default function ContactCard() {
 
     setIsSending(true);
 
+    const apiBase = process.env.REACT_APP_API_URL || "";
+    const sendEmailUrl = apiBase ? `${apiBase}/send-email` : "/api/send-email";
+
     try {
-      const res = await fetch("http://localhost:5000/send-email", {
+      const res = await fetch(sendEmailUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
