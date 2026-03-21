@@ -7,15 +7,26 @@ export default function HeaderSection() {
     <section className="relative overflow-hidden bg-[#052a83] text-white">
       {/* moving white light band (like Figma) */}
       <div className="pointer-events-none absolute inset-0 hero-bottom-glow">
-        {/* Band A: left -> right */}
-        <div className="hero-lightband hero-lightband--a absolute bottom-[-140px] left-[-40vw] h-64 w-[1200px] opacity-90 md:h-80 md:w-[1500px]" />
+        {/* Band A: Increased height back to h-64 but moved lower */}
+        <div 
+          className="hero-lightband hero-lightband--a absolute bottom-[-180px] left-[-30vw] h-64 w-[1200px] opacity-80 md:h-80 md:w-[1500px]" 
+          style={{ 
+            background: 'radial-gradient(ellipse at center, #0EE1FE 0%, transparent 75%)',
+            filter: 'blur(40px)' // Softens the top edge significantly
+          }} 
+        />
 
-        {/* Band B: right -> left */}
-        <div className="hero-lightband hero-lightband--b absolute bottom-[-170px] right-[-40vw] h-64 w-[1200px] opacity-75 md:h-80 md:w-[1500px]" />
+        {/* Band B: Increased height back to h-64 but moved lower */}
+        <div 
+          className="hero-lightband hero-lightband--b absolute bottom-[-210px] right-[-30vw] h-64 w-[1200px] opacity-70 md:h-80 md:w-[1500px]" 
+          style={{ 
+            background: 'radial-gradient(ellipse at center, #0EE1FE 0%, transparent 75%)',
+            filter: 'blur(40px)' 
+          }}
+        />
       </div>
 
       {/* existing soft glows (keep for depth like mockup) */}
-      <div className="pointer-events-none absolute -left-32 bottom-10 h-80 w-80 rounded-full bg-cyan-400/25 blur-3xl" />
       <div className="pointer-events-none absolute right-0 top-0 h-72 w-72 rounded-full bg-indigo-400/15 blur-3xl" />
 
       <Container className="relative z-10 py-20 md:py-28">

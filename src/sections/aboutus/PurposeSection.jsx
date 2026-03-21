@@ -7,14 +7,14 @@ export default function PurposeSection() {
       {/* Grid stays 1 column on mobile, switches to 2 columns at 'lg' (1024px).
           'items-center' keeps the illustration and text vertically aligned.
       */}
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-x-24 items-center">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-x-32 items-center">
 
         {/* Illustration: Scaled for mobile per image_898d0e.png */}
         <div className="flex justify-center lg:justify-center order-1">
           <img
             src="/AboutUs_Purpose.svg" 
             alt="Meridian purpose illustration"
-            className="w-full max-w-[280px] md:max-w-md lg:max-w-[480px] -rotate-[10deg] lg:-rotate-[15deg] duration-500 transition-transform hover:rotate-0"
+            className="w-full max-w-[260px] md:max-w-sm lg:max-w-[380px] -rotate-[6deg] lg:-rotate-[10deg] duration-500 transition-transform hover:rotate-0"
           />
         </div>
 
@@ -26,7 +26,7 @@ export default function PurposeSection() {
           </p>
 
           {/* Heading: Responsive font sizes to prevent overflow on mobile */}
-          <h2 className="text-4xl md:text-6xl font-[Epilogue] text-[#01257F] font-extrabold mb-4 leading-relaxed leading-[1.1]">
+          <h2 className="text-4xl md:text-6xl font-[Epilogue] text-[#01257F] font-extrabold mb-4 leading-[1.1]">
             Bridging 
             <br className="hidden md:block"/> 
             {" "}the Digital Gap

@@ -1,18 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-export default function PrivacyPolicyModal({ isOpen, onClose, onAgree }) {
+export default function PrivacyPolicyModal({ isOpen, onClose, onAgree, onDecline }) {
+  // Prevent background scrolling when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-xl">
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 40 }}
+            transition={{ duration: 0.25 }}
+            className="w-full max-w-lg rounded-3xl bg-white p-6 shadow-xl"
+          >
         {/* Title */}
         <h2 className="text-xl font-bold font-[Epilogue] text-[#143a8c] mb-4">
           Privacy Notice: Contacting Meridian
         </h2>
 
-        {/* Scrollable content */}
-        <div className="h-64 overflow-y-auto font-[Inter]  text-sm text-gray-700 space-y-3 mb-6">
+        <div className="h-64 overflow-y-auto font-[Inter] text-sm text-gray-700 space-y-3 mb-6 pr-4">
           <p>
             At Meridian, we believe that clear navigation begins with trust.
             When you reach out to us, you are sharing your information with the
@@ -54,7 +79,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose, onAgree }) {
 
           <p>
             The data you provide is used exclusively for the purpose of
-            <strong>communication and service delivery.</strong> Specifically:
+            <strong> communication and service delivery.</strong> Specifically:
           </p>
 
           <ul className="list-disc pl-5 space-y-2 text-sm text-gray-700">
@@ -74,7 +99,7 @@ export default function PrivacyPolicyModal({ isOpen, onClose, onAgree }) {
           <p>
             <strong>
               We do not sell, rent, or lease our contact lists to third parties.
-            </strong>
+            </strong>{" "}
             Your information stays within the Meridian ecosystem.
           </p>
 
@@ -121,8 +146,11 @@ export default function PrivacyPolicyModal({ isOpen, onClose, onAgree }) {
         {/* Buttons */}
         <div className="flex justify-end gap-3">
           <button
-            onClick={onClose}
-            className="rounded-xl px-4 py-2 text-sm font-medium bg-gray-200 hover:bg-gray-300"
+            onClick={() => {
+              onDecline(); // Unchecks the box
+              onClose();
+            }}
+            className="rounded-xl px-4 py-2 text-sm font-bold text-slate-800 bg-gray-200 hover:bg-gray-300 transition-colors"
           >
             Decline
           </button>
@@ -136,8 +164,10 @@ export default function PrivacyPolicyModal({ isOpen, onClose, onAgree }) {
           >
             I Agree
           </button>
-        </div>
-      </div>
-    </div>
+          </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
