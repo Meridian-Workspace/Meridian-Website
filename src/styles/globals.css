@@ -17,13 +17,13 @@ html {
   /* stronger center, smoother edges */
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.35) 18%,
-    rgba(255, 255, 255, 0.85) 45%,
-    rgba(255, 255, 255, 0.95) 50%,
-    rgba(255, 255, 255, 0.85) 55%,
-    rgba(255, 255, 255, 0.35) 82%,
-    rgba(255, 255, 255, 0) 100%
+    rgba(14, 225, 254, 0) 0%,
+    rgba(14, 225, 254, 0.35) 18%,
+    rgba(14, 225, 254, 0.85) 45%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(14, 225, 254, 0.85) 55%,
+    rgba(14, 225, 254, 0.35) 82%,
+    rgba(14, 225, 254, 0) 100% /* Transparent teal-cyan */
   );
 
   /* helps it feel like “light” on blue */
