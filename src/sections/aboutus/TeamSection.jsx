@@ -111,18 +111,15 @@ function TeamCard({ member, onClick }) {
 
 function TeamModal({ member, onClose }) {
   React.useEffect(() => {
-    // Save original overflow style
     const originalStyle = window.getComputedStyle(document.body).overflow;
     document.body.style.overflow = "hidden";
-
-    // Clean up: reset overflow when component unmounts
     return () => {
       document.body.style.overflow = originalStyle;
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/60 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
       {/* Click outside to close */}
       <div className="absolute inset-0" onClick={onClose} />
       
@@ -132,9 +129,18 @@ function TeamModal({ member, onClose }) {
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         className="bg-white rounded-[2rem] overflow-hidden max-w-lg md:max-w-3xl w-full max-h-[90vh] md:max-h-[600px] flex flex-col md:flex-row shadow-2xl z-10 relative"
       >
+        {/* Close Icon for Mobile (Convenience) */}
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 z-30 bg-white/80 backdrop-blur-md p-2 rounded-full shadow-sm md:hidden"
+        >
+          <svg className="w-4 h-4 text-[#01257F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
         {/* Left Side: Image */}
-        {/* Mobile: Square-ish | Desktop: Portrait sidebar */}
-        <div className="w-full md:w-[45%] aspect-square md:aspect-auto bg-gray-100 flex-shrink-0">
+        <div className="w-full md:w-[45%] aspect-[4/5] md:aspect-auto bg-gray-100 flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-100">
           <img 
             src={member.image} 
             alt={member.name} 
@@ -143,31 +149,34 @@ function TeamModal({ member, onClose }) {
         </div>
         
         {/* Right Side: Content */}
-        <div className="p-6 md:p-10 w-full flex flex-col justify-center overflow-y-auto">
-          <div className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#01257F] mb-1 leading-tight">
+        {/* Changed justify-center to justify-start on mobile to prevent "cramping" against the image */}
+        <div className="p-6 md:p-10 w-full flex flex-col justify-start md:justify-center overflow-y-auto">
+          <div className="mb-4 md:mb-6">
+            <h2 className="text-xl md:text-3xl font-bold text-[#01257F] mb-1 leading-tight">
               {member.name}
             </h2>
-          
           </div>
           
           <div className="space-y-4 md:space-y-6">
             <div>
-              <h4 className="text-[10px] uppercase font-bold text-gray-300 mb-1">Roles</h4>
-              <p className="text-sm md:text-base text-[#01257F] font-medium">
+              <h4 className="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-wider">Roles</h4>
+              <p className="text-sm md:text-base text-[#01257F] font-semibold leading-snug">
                 {member.specialty2}
               </p>
             </div>
 
             <div>
-              <h4 className="text-[10px] uppercase font-bold text-gray-300 mb-1">About</h4>
+              <h4 className="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-wider">About</h4>
               <p className="text-xs md:text-sm text-gray-600 leading-relaxed italic">
                 "{member.bio}"
               </p>
             </div>
           </div>
 
-          <button onClick={onClose} className="mt-8 bg-[#01257F] hover:bg-[#0233b0] text-white py-3 rounded-xl font-bold text-sm transition-all active:scale-95 shadow-md hover:shadow-lg">
+          <button 
+            onClick={onClose} 
+            className="mt-6 md:mt-8 bg-[#01257F] hover:bg-[#0233b0] text-white py-3 px-6 rounded-xl font-bold text-sm transition-all active:scale-95 shadow-md flex-shrink-0"
+          >
             Close Profile
           </button>
         </div>
