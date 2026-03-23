@@ -50,28 +50,33 @@ function Cell({ value }) {
       </span>
     );
   }
-  return (
-    <span className="text-sm font-medium text-brand">{value}</span>
-  );
+  return <span className="text-sm font-medium text-brand">{value}</span>;
 }
 
 export default function CompareServicesSection() {
   return (
-    <section className="w-full bg-white py-16 md:py-24">
+    <section className="w-full bg-white py-14 md:py-18">
       <Container>
-        <h2 className="text-3xl font-bold tracking-tight text-[#052a83] md:text-4xl">
-          Compare our services
-        </h2>
-        <p className="mt-3 max-w-2xl text-slate-600">
-          Find the right fit for your vision. Compare our tiers to see how we
-          deliver premium execution at every level.
-        </p>
+        {/* Centered Header Wrapper */}
+        <div className="flex flex-col items-center text-center">
+          <h2 className="font-[Epilogue] text-3xl font-bold tracking-tight text-[#052a83] md:text-4xl">
+            Compare our services
+          </h2>
+          <p className="font-[Inter] mt-3 max-w-2xl text-slate-600 mx-auto">
+            <p>
+              Find the right fit for your vision. Compare our tiers to see how
+              we
+            </p>
+            <p>deliver premium execution at every level.</p>
+          </p>
+        </div>
 
         <div className="mt-10 overflow-hidden rounded-xl border-2 border-[#052a83]">
           <table className="w-full border-collapse text-left">
             <thead>
               <tr className="bg-[#052a83] text-white">
                 <th className="px-4 py-4 font-semibold md:px-6">Feature</th>
+                {/* Optional: Add text-center to these th tags if you want the column titles centered too */}
                 <th className="px-4 py-4 font-semibold md:px-6">Origin</th>
                 <th className="px-4 py-4 font-semibold md:px-6">Compass</th>
               </tr>
