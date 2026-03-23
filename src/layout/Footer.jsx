@@ -97,25 +97,22 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Contact Column */}
-            <div className="md:col-span-3">
+            {/* Contact Column — col-span-2 on mobile so it is not stuck in half-width grid cell */}
+            <div className="col-span-2 min-w-0 md:col-span-3">
               <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-6">
                 Contact Us
               </h3>
-              {/* Added w-full and overflow-hidden to protect the layout */}
-              <div className="flex items-center gap-3 text-sm font-medium w-full overflow-hidden">
-                {/* Email Link */}
+              <div className="flex w-full min-w-0 items-start gap-3 text-sm font-medium">
                 <a
                   href="mailto:executive.meridian@gmail.com"
-                  className="flex items-center gap-3 hover:underline whitespace-nowrap"
+                  className="flex min-w-0 max-w-full items-start gap-3 hover:underline"
                 >
                   <img
                     src="/email.png"
                     alt="Email"
-                    className="w-5 h-5 object-contain shrink-0" // shrink-0 stops the icon from squishing
+                    className="mt-0.5 h-5 w-5 shrink-0 object-contain"
                   />
-                  {/* Changed break-all to whitespace-nowrap and slightly smaller text for mobile */}
-                  <span className="whitespace-nowrap text-[13px] sm:text-sm">
+                  <span className="min-w-0 break-all text-[13px] sm:text-sm">
                     executive.meridian@gmail.com
                   </span>
                 </a>
