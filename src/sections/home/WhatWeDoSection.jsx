@@ -2,6 +2,7 @@ import Container from "../../components/ui/Container";
 import SectionHeader from "../../components/ui/SectionHeader";
 import Accordion from "../../components/ui/Accordion";
 import Button from "../../components/ui/Button";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 export default function WhatWeDoSection() {
   const accordionItems = [
@@ -28,13 +29,12 @@ export default function WhatWeDoSection() {
           eyebrowClassName="text-sm font-bold tracking-widest text-slate-500"
         />
 
-        <div className="mt-20 grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
-          {/* Illustration - Ensure it scales large */}
+        <div className="mt-2 grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
           <div className="flex justify-center">
             <img
               src="/screen.svg"
               alt="Illustration"
-              className="w-full max-w-xl object-contain"
+              className="w-full max-w-xl object-contain transition-transform duration-300 hover:scale-105"
             />
           </div>
 
@@ -45,10 +45,19 @@ export default function WhatWeDoSection() {
             */}
             <Accordion
               items={accordionItems}
-              defaultOpenIndex={1}
-              className="w-full"
-              titleClassName="text-2xl md:text-3xl font-bold text-[#002878] py-8 border-b border-slate-100"
-              contentClassName="text-lg text-slate-700 leading-relaxed py-6"
+              defaultOpenIndex={0}
+              className="w-full rounded-2xl border border-slate-200 shadow-sm"
+              titleClassName="text-xl md:text-2xl font-semibold text-[#002878] py-6 px-8 flex justify-between items-center"
+              contentClassName="bg-[#F8F9FA] text-slate-600 py-8 px-8 border-t border-slate-100"
+              activeIcon={
+                <div className="bg-[#EF5931] rounded-full p-1 text-white flex items-center justify-center">
+                  <ChevronUp size={20} />
+                </div>
+              }
+              // The simple navy chevron for the closed state
+              inactiveIcon={
+                <ChevronDown size={24} className="text-[#002878]" />
+              }
             />
 
             {/* Button Placement & Sizing */}
