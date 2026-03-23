@@ -24,7 +24,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="font-[Epilogue] text-4xl font-extrabold tracking-tight md:text-6xl"
+            className="font-[Epilogue] text-4xl font-bold tracking-tight md:text-6xl"
           >
             Where Smart Systems
             <br />
@@ -51,9 +51,15 @@ export default function HeroSection() {
               as="a"
               href="/contactus"
               variant="primary"
-              className="h-14 w-1/2 rounded-xl bg-brand px-32 text-base font-semibold text-white hover:bg-[#d94e2c]"
+              className={[
+                "h-14 w-1/2 rounded-xl bg-brand px-32 text-base text-xl font-semibold text-white",
+                "transition-[background-image,background-color,box-shadow,transform,border-radius,filter] duration-300 ease-out",
+                "hover:!bg-[radial-gradient(ellipse_110%_140%_at_50%_52%,#FFF7A8_0%,#FAE11D_0%,#F2A318_16%,#EB5733_48%,#C42E12_82%,#9A220E_100%)]",
+                "hover:!shadow-[inset_0_-2px_0_0_rgba(45,16,6,0.45),inset_6px_-6px_18px_rgba(120,45,18,0.22),0_0_0_1px_#052a83,0_0_1px_1px_rgba(125,180,255,0.48)]",
+                "hover:!brightness-[1.03] hover:!scale-[1.02]",
+              ].join(" ")}
             >
-              Let’s Collaborate
+              Let’s Collaborate!
             </Button>
           </motion.div>
         </div>

@@ -1,53 +1,91 @@
 import { useId, useState } from "react";
 import clsx from "clsx";
-import { ChevronDown } from "lucide-react";
 
-export default function Accordion({ items, defaultOpenIndex = 1 }) {
+/**
+ * Updated Accordion Component
+ * Matches Figma styling with smooth height transitions and multi-open support.
+ */
+export default function Accordion({
+  items,
+  defaultOpenIndex = 0,
+  className,
+  titleClassName,
+  contentClassName,
+  activeIcon,
+  inactiveIcon,
+}) {
   const baseId = useId();
-  const [openIndex, setOpenIndex] = useState(defaultOpenIndex);
+
+  // State as an array allows multiple items to be open simultaneously
+  const [openIndices, setOpenIndices] = useState([defaultOpenIndex]);
+
+  const toggleItem = (index) => {
+    setOpenIndices(
+      (prev) =>
+        prev.includes(index)
+          ? prev.filter((i) => i !== index) // Close item
+          : [...prev, index], // Open item
+    );
+  };
 
   return (
-    <div className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+    <div
+      className={clsx(
+        "divide-y divide-slate-200 border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm",
+        className,
+      )}
+    >
       {items.map((item, index) => {
-        const isOpen = openIndex === index;
+        const isOpen = openIndices.includes(index);
         const buttonId = `${baseId}-btn-${index}`;
         const panelId = `${baseId}-panel-${index}`;
 
         return (
-          <div key={item.title}>
+          <div key={item.title} className="relative">
             <button
               id={buttonId}
               type="button"
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-              onClick={() =>
-                setOpenIndex((current) => (current === index ? -1 : index))
-              }
+              className={clsx(
+                "flex w-full items-center justify-between gap-4 transition-colors text-left focus:outline-none",
+                titleClassName,
+              )}
+              onClick={() => toggleItem(index)}
               aria-expanded={isOpen}
               aria-controls={panelId}
             >
-              <span className="text-base font-semibold text-[#052a83] md:text-lg">
-                {item.title}
-              </span>
-              <ChevronDown
-                className={clsx(
-                  "shrink-0 transition",
-                  isOpen ? "rotate-180" : "rotate-0",
-                )}
-                size={20}
-              />
+              <span>{item.title}</span>
+
+              {/* Icon Container with subtle rotation/scaling transition */}
+              <div className="shrink-0 transition-all duration-300 transform">
+                {isOpen ? activeIcon : inactiveIcon}
+              </div>
             </button>
 
+            {/* Smooth Height Transition Wrapper using CSS Grid */}
             <div
               id={panelId}
               role="region"
               aria-labelledby={buttonId}
-              className={clsx("px-6 pb-6", isOpen ? "block" : "hidden")}
+              className={clsx(
+                "grid transition-all duration-300 ease-in-out",
+                isOpen
+                  ? "grid-rows-[1fr] opacity-100"
+                  : "grid-rows-[0fr] opacity-0",
+              )}
             >
-              <p className="text-sm leading-relaxed text-slate-600">
-                {item.description}
-              </p>
+              <div className="overflow-hidden">
+                <div
+                  className={clsx(
+                    "text-base leading-relaxed",
+                    contentClassName,
+                  )}
+                >
+                  {item.description}
 
-              {item.cta ? <div className="mt-5">{item.cta}</div> : null}
+                  {/* Optional CTA within the accordion item */}
+                  {item.cta && <div className="mt-5">{item.cta}</div>}
+                </div>
+              </div>
             </div>
           </div>
         );
