@@ -56,15 +56,17 @@ const values = [
 export default function StandSection() {
   return (
     <section className="w-full py-20 md:py-28 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         
         {/* Title */}
-        <h2 className="text-center text-3xl md:text-5xl font-extrabold font-[Epilogue] text-[#01257F] mb-20">
+        <h2 className="text-center text-3xl md:text-5xl font-extrabold font-[Epilogue] text-[#01257F] mb-16 md:mb-20">
           What we stand for
         </h2>
 
-        {/* Responsive Flex Container */}
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 lg:gap-x-20">
+        {/* Changed to Flex for perfect centering of the bottom row.
+            Gap handles spacing between items.
+        */}
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-16 lg:gap-x-16">
           {values.map((value, index) => (
             <Card key={index} {...value} />
           ))}
@@ -76,20 +78,27 @@ export default function StandSection() {
 
 function Card({ title, description, icon }) {
   return (
-    <div className="text-center flex flex-col items-center w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-2.5rem)] max-w-[320px]">
-      <div className="relative w-36 h-36 mb-8 flex items-center justify-center">
+    /* Width Logic:
+       - w-full: Mobile (1 column)
+       - sm:w-[calc(50%-2rem)]: Large phones (2 columns)
+       - md:w-[calc(33.33%-4rem)]: iPads/Desktop (3 columns)
+    */
+    <div className="text-center flex flex-col items-center w-full sm:w-[calc(50%-2rem)] md:w-[calc(33.33%-4rem)] min-w-[280px] max-w-[350px]">
+      
+      {/* Reduced Image Container Size */}
+      <div className="relative w-24 h-24 md:w-28 md:h-28 mb-6 flex items-center justify-center">
         <img 
           src={icon} 
-          alt="" /* Decorative icon */
+          alt="" 
           className="w-full h-full object-contain transition-transform duration-300 hover:scale-110" 
         />
       </div>
 
-      <h3 className="text-2xl md:text-3xl font-bold font-[Epilogue] text-[#01257F] mb-4 leading-tight">
+      <h3 className="text-xl md:text-2xl font-bold font-[Epilogue] text-[#01257F] mb-3 leading-tight">
         {title}
       </h3>
 
-      <p className="text-sm md:text-base font-[Inter] text-[#01257F]/80 leading-relaxed">
+      <p className="text-sm md:text-base font-[Inter] text-[#01257F]/80 leading-relaxed px-4">
         {description}
       </p>
     </div>

@@ -132,7 +132,7 @@ export default function ContactCard() {
   return (
     <>
       <div className="flex justify-center mb-12 xl:mb-24">
-        <div className="w-[351px] h-max xl:w-[586px] rounded-[28px] bg-[#f3f3f3] px-6 py-8 xl:px-14 xl:py-16 overflow-hidden">
+        <div className="w-full max-w-[450px] xl:max-w-[586px] h-max rounded-[28px] bg-[#f3f3f3] px-6 py-8 xl:px-14 xl:py-16 overflow-hidden">
           {/* Header */}
           <div className="xl:mb-3">
             <p className="text-xs xl:text-[22px] text-[#143a8c]">
