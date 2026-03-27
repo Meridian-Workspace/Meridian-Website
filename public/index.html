@@ -2,7 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- Single favicon; swapped by script — media on <link rel="icon"> is unreliable across browsers -->
+    <link
+      id="meridian-favicon"
+      rel="icon"
+      type="image/svg+xml"
+      href="%PUBLIC_URL%/Secondary%20-%20Blue.svg"
+    />
+    <script>
+      (function () {
+        var base = "%PUBLIC_URL%" || "";
+        var blue = base + "/Secondary%20-%20Blue.svg";
+        var white = base + "/Secondary%20-%20White.svg";
+        var link = document.getElementById("meridian-favicon");
+        function apply() {
+          if (!link) return;
+          var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var href = (dark ? white : blue) + "?m=" + (dark ? "d" : "l");
+          link.href = href;
+        }
+        apply();
+        try {
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", apply);
+        } catch (e) {
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addListener(apply);
+        }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -30,7 +60,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Meridian</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
