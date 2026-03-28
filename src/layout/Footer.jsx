@@ -35,7 +35,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#get-a-quote" className="hover:underline">
+                  <a href="/contactus" className="hover:underline">
                     Contact Us
                   </a>
                 </li>
