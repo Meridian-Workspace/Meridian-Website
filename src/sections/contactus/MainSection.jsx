@@ -45,15 +45,24 @@ export default function MainSection() {
               Email
             </motion.h4>
 
-            <motion.p
+            <motion.a
+              href="mailto:executive.meridian@gmail.com"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              href="mailto:executive.meridian@gmail.com"
-              className="text-sm font-medium font-[Inter] tracking-tight pb-7 xl:text-base md:pb-14"
+              className="
+                text-sm xl:text-base
+                font-medium font-[Inter]
+                tracking-tight
+                pb-7 md:pb-14
+                hover:underline
+                cursor-pointer
+                break-all
+                inline-block
+              "
             >
               executive.meridian@gmail.com
-            </motion.p>
+            </motion.a>
 
             <motion.h4
               initial={{ opacity: 0, y: 8 }}
