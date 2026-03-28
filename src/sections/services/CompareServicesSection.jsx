@@ -23,16 +23,8 @@ const features = [
   { name: "Basic Analytics Dashboard", origin: false, compass: true },
   { name: "User Login", origin: false, compass: true },
   { name: "Role-Based Access", origin: false, compass: true },
-  {
-    name: "API Integration",
-    origin: false,
-    compass: "limited",
-  },
-  {
-    name: "Payment Gateway",
-    origin: false,
-    compass: "optional",
-  },
+  { name: "API Integration", origin: false, compass: "limited" },
+  { name: "Payment Gateway", origin: false, compass: "optional" },
 ];
 
 function Cell({ value }) {
@@ -57,18 +49,17 @@ export default function CompareServicesSection() {
   return (
     <section className="w-full bg-white py-14 md:py-18">
       <Container>
-        {/* Centered Header Wrapper */}
         <div className="flex flex-col items-center text-center">
           <h2 className="font-[Epilogue] text-3xl font-bold tracking-tight text-[#052a83] md:text-4xl">
             Compare our services
           </h2>
-          <p className="font-[Inter] mt-3 max-w-2xl text-slate-600 mx-auto">
+          <div className="font-[Inter] mt-3 max-w-2xl text-slate-600">
             <p>
               Find the right fit for your vision. Compare our tiers to see how
               we
             </p>
             <p>deliver premium execution at every level.</p>
-          </p>
+          </div>
         </div>
 
         <div className="mt-10 overflow-hidden rounded-xl border-2 border-[#052a83]">
@@ -76,9 +67,13 @@ export default function CompareServicesSection() {
             <thead>
               <tr className="bg-[#052a83] text-white">
                 <th className="px-4 py-4 font-semibold md:px-6">Feature</th>
-                {/* Optional: Add text-center to these th tags if you want the column titles centered too */}
-                <th className="px-4 py-4 font-semibold md:px-6">Origin</th>
-                <th className="px-4 py-4 font-semibold md:px-6">Compass</th>
+                {/* Added text-center here */}
+                <th className="px-4 py-4 font-semibold md:px-6 text-center">
+                  Origin
+                </th>
+                <th className="px-4 py-4 font-semibold md:px-6 text-center">
+                  Compass
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -90,10 +85,12 @@ export default function CompareServicesSection() {
                   <td className="border-t border-slate-200 px-4 py-3 text-slate-800 md:px-6">
                     {row.name}
                   </td>
-                  <td className="border-t border-slate-200 px-4 py-3 md:px-6">
+                  {/* Added text-center here */}
+                  <td className="border-t border-slate-200 px-4 py-3 md:px-6 text-center">
                     <Cell value={row.origin} />
                   </td>
-                  <td className="border-t border-slate-200 px-4 py-3 md:px-6">
+                  {/* Added text-center here */}
+                  <td className="border-t border-slate-200 px-4 py-3 md:px-6 text-center">
                     <Cell value={row.compass} />
                   </td>
                 </tr>
