@@ -24,24 +24,26 @@ export default function ProcessSection() {
         {/* Added horizontal padding on mobile to prevent circles from hitting screen edge */}
         <div className="mx-auto mt-12 max-w-2xl space-y-4 md:space-y-6 px-4 md:px-0">
           {steps.map((step) => (
-            <div key={step.number} className="relative pl-6 md:pl-10">
-              {/* Responsive Number Circle: smaller on mobile (h-14), larger on desktop (h-20) */}
-              <div
-                className={clsx(
-                  "absolute left-0 top-1/2 -translate-y-1/2 z-10",
-                  "flex h-14 w-14 md:h-20 md:w-20 items-center justify-center rounded-full",
-                  "bg-gradient-to-b from-[#ffb133] to-[#ed6a32]",
-                  "text-lg md:text-2xl font-bold text-white shadow-lg border-2 border-white",
-                )}
-              >
-                {step.number}
-              </div>
+            <div key={step.number} className="group relative pl-6 md:pl-10">
+              <div className="relative transition-transform duration-300 group-hover:scale-110">
+                {/* Responsive Number Circle: smaller on mobile (h-14), larger on desktop (h-20) */}
+                <div
+                  className={clsx(
+                    "absolute -left-6 top-1/2 -translate-y-1/2 z-10 md:-left-10",
+                    "flex h-14 w-14 md:h-20 md:w-20 items-center justify-center rounded-full",
+                    "bg-gradient-to-b from-[#ffb133] to-[#ed6a32]",
+                    "text-lg md:text-2xl font-bold text-white shadow-lg border-2 border-white",
+                  )}
+                >
+                  {step.number}
+                </div>
 
-              {/* Responsive Card: Reduced min-height and padding on mobile */}
-              <div className="flex min-h-[70px] md:min-h-[100px] items-center rounded-2xl border-2 border-[#052a83] bg-white py-4 md:py-6 pl-12 md:pl-16 pr-6 md:pr-8">
-                <p className="text-base font-bold text-[#052a83] md:text-2xl leading-tight">
-                  {step.title}
-                </p>
+                {/* Responsive Card: Reduced min-height and padding on mobile */}
+                <div className="flex min-h-[70px] md:min-h-[100px] items-center rounded-2xl border-2 border-[#052a83] bg-white py-4 md:py-6 pl-12 md:pl-16 pr-6 md:pr-8">
+                  <p className="text-base font-bold text-[#052a83] md:text-2xl leading-tight">
+                    {step.title}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
