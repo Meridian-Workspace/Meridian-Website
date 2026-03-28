@@ -49,6 +49,7 @@ export default function MainSection() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              href="mailto:executive.meridian@gmail.com"
               className="text-sm font-medium font-[Inter] tracking-tight pb-7 xl:text-base md:pb-14"
             >
               executive.meridian@gmail.com
