@@ -69,13 +69,13 @@ export default function MainSection() {
               transition={{ duration: 0.5 }}
               className="mt-3 flex items-center gap-4 text-white/80"
             >
-              <a aria-label="Facebook" href="#" className="hover:text-white">
+              <a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61582150155432" className="hover:text-white">
                 <Facebook size={30} />
               </a>
-              <a aria-label="LinkedIn" href="#" className="hover:text-white">
+              <a aria-label="LinkedIn" href="https://www.linkedin.com/company/merǐdian/" className="hover:text-white">
                 <Linkedin size={30} />
               </a>
-              <a aria-label="Instagram" href="#" className="hover:text-white">
+              <a aria-label="Instagram" href="https://www.instagram.com/meridian_web/" className="hover:text-white">
                 <Instagram size={30} />
               </a>
             </motion.icon>

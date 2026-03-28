@@ -119,53 +119,85 @@ function TeamModal({ member, onClose }) {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      {/* Click outside to close */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm">
+      {/* Click outside */}
       <div className="absolute inset-0" onClick={onClose} />
-      
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="bg-white rounded-[2rem] overflow-hidden max-w-lg md:max-w-3xl w-full max-h-[85vh] md:max-h-[600px] flex flex-col md:flex-row shadow-2xl z-10 relative"
+        className="
+          relative z-10
+          w-full max-w-md sm:max-w-lg md:max-w-3xl
+          max-h-[90vh]
+          bg-white rounded-[2rem] shadow-2xl
+          flex flex-col md:flex-row
+          overflow-hidden
+        "
       >
-        {/* Left Side: Image */}
-        {/* Changed aspect ratio to aspect-video on mobile to save vertical space */}
-        <div className="w-full md:w-[45%] aspect-video md:aspect-auto bg-gray-100 flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-100">
-          <img 
-            src={member.image} 
-            alt={member.name} 
-            className="w-full h-full object-cover object-top" 
+        {/* IMAGE */}
+        <div className="
+          w-full md:w-[45%]
+          flex items-center justify-center
+          bg-gray-100
+          min-h-[220px] sm:min-h-[260px] md:min-h-full
+        ">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="
+              w-full h-full
+              object-contain md:object-cover
+              object-center
+            "
           />
         </div>
-        
-        {/* Right Side: Content */}
-        <div className="p-5 md:p-10 w-full flex flex-col justify-start md:justify-center overflow-y-auto">
+
+        {/* CONTENT */}
+        <div className="
+          w-full
+          p-5 sm:p-6 md:p-10
+          flex flex-col
+          overflow-y-auto
+        ">
           <div className="mb-3 md:mb-6">
-            <h2 className="text-xl md:text-3xl font-bold text-[#01257F] mb-1 leading-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#01257F] leading-tight">
               {member.name}
             </h2>
           </div>
-          
+
           <div className="space-y-3 md:space-y-6">
             <div>
-              <h4 className="text-[10px] uppercase font-bold text-gray-400 mb-0.5 tracking-wider">Roles</h4>
-              <p className="text-sm md:text-base text-[#01257F] font-semibold leading-snug">
+              <h4 className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
+                Roles
+              </h4>
+              <p className="text-sm md:text-base text-[#01257F] font-semibold">
                 {member.specialty2}
               </p>
             </div>
 
             <div>
-              <h4 className="text-[10px] uppercase font-bold text-gray-400 mb-0.5 tracking-wider">About</h4>
-              <p className="text-xs md:text-sm text-gray-600 leading-relaxed italic">
+              <h4 className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">
+                About
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-600 italic leading-relaxed">
                 "{member.bio}"
               </p>
             </div>
           </div>
 
-          <button 
-            onClick={onClose} 
-            className="mt-5 md:mt-8 bg-[#01257F] hover:bg-[#0233b0] text-white py-3 px-6 rounded-xl font-bold text-sm transition-all active:scale-95 shadow-md flex-shrink-0"
+          {/* BUTTON */}
+          <button
+            onClick={onClose}
+            className="
+              mt-5 md:mt-8
+              bg-[#01257F] hover:bg-[#0233b0]
+              text-white font-bold text-sm
+              py-3 px-6 rounded-xl
+              transition-all active:scale-95
+              shadow-md
+            "
           >
             Close Profile
           </button>
